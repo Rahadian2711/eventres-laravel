@@ -139,7 +139,7 @@
                             </svg>
                             Tiket Saya
                         </a>
-                        <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-slate-300 hover:text-[#E91E8C] hover:bg-gray-100 dark:hover:bg-white/5 transition">
+                        <a href="{{ route('history.index') }}" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-slate-300 hover:text-[#E91E8C] hover:bg-gray-100 dark:hover:bg-white/5 transition">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round"

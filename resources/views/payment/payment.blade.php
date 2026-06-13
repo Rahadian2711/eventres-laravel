@@ -68,14 +68,12 @@
 
                         @php
                         $methods = [
-                            ['id' => 'qris',    'label' => 'QRIS',                    'desc' => 'Bayar dengan semua aplikasi e-wallet & mobile banking', 'icon' => 'qris'],
-                            ['id' => 'bca',     'label' => 'BCA Virtual Account',      'desc' => 'Pembayaran melalui Virtual Account BCA',                'icon' => 'bca'],
-                            ['id' => 'bni',     'label' => 'BNI Virtual Account',      'desc' => 'Pembayaran melalui Virtual Account BNI',                'icon' => 'bni'],
-                            ['id' => 'mandiri', 'label' => 'Mandiri Virtual Account',  'desc' => 'Pembayaran melalui Virtual Account Mandiri',            'icon' => 'mandiri'],
-                            ['id' => 'gopay',   'label' => 'GoPay',                    'desc' => 'Bayar pakai saldo GoPay',                               'icon' => 'gopay'],
-                            ['id' => 'dana',    'label' => 'DANA',                     'desc' => 'Bayar pakai saldo DANA',                               'icon' => 'dana'],
-                            ['id' => 'ovo',     'label' => 'OVO',                      'desc' => 'Bayar pakai saldo OVO',                                'icon' => 'ovo'],
-                            ['id' => 'shopee',  'label' => 'ShopeePay',                'desc' => 'Bayar pakai saldo ShopeePay',                          'icon' => 'shopee'],
+                            ['id' => 'qris',      'label' => 'QRIS',                    'desc' => 'Bayar dengan semua aplikasi e-wallet & mobile banking', 'icon' => 'qris'],
+                            ['id' => 'bca',       'label' => 'BCA Virtual Account',     'desc' => 'Pembayaran melalui Virtual Account BCA',                'icon' => 'bca'],
+                            ['id' => 'bni',       'label' => 'BNI Virtual Account',     'desc' => 'Pembayaran melalui Virtual Account BNI',                'icon' => 'bni'],
+                            ['id' => 'bri',       'label' => 'BRI Virtual Account',     'desc' => 'Pembayaran melalui Virtual Account BRI',                'icon' => 'bri'],
+                            ['id' => 'gopay',     'label' => 'GoPay',                   'desc' => 'Bayar pakai saldo / QR GoPay',                          'icon' => 'gopay'],
+                            ['id' => 'shopeepay', 'label' => 'ShopeePay',               'desc' => 'Bayar pakai saldo ShopeePay',                          'icon' => 'shopee'],
                         ];
                         @endphp
 
@@ -99,8 +97,8 @@
                                     <span class="text-[10px] font-black text-blue-700">BCA</span>
                                 @elseif($m['icon'] === 'bni')
                                     <span class="text-[10px] font-black text-orange-600">BNI</span>
-                                @elseif($m['icon'] === 'mandiri')
-                                    <span class="text-[8px] font-black text-yellow-600">mandiri</span>
+                                @elseif($m['icon'] === 'bri')
+                                    <span class="text-[10px] font-black text-blue-700">BRI</span>
                                 @elseif($m['icon'] === 'gopay')
                                     <span class="text-[9px] font-black text-green-600">GoPay</span>
                                 @elseif($m['icon'] === 'dana')
@@ -131,25 +129,22 @@
                             <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Melodia menggunakan sistem keamanan berlapis untuk melindungi setiap transaksi Anda.</p>
                         </div>
                     </div>
-
+                {{-- Bottom CTA --}}
+                <div class="mt-8">
+                    <button id="pay-button"
+                        class="w-full sm:w-auto px-8 py-4 bg-[#EC4899] hover:bg-[#db2777] active:bg-[#be185d] text-white font-semibold rounded-2xl transition-all shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 flex items-center justify-center gap-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#EC4899] focus:ring-offset-2 dark:focus:ring-offset-[#060B1F]">
+                        Bayar Sekarang
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </button>
+                </div>
                 </div>
 
                 {{-- RIGHT SIDEBAR --}}
                 @include('payment.sidebar')
 
             </div>
-
-            {{-- Bottom CTA --}}
-            <div class="mt-6">
-                <button id="pay-button"
-                    class="w-full sm:w-auto px-8 py-4 bg-[#EC4899] hover:bg-[#db2777] active:bg-[#be185d] text-white font-semibold rounded-2xl transition-all shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 flex items-center justify-center gap-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#EC4899] focus:ring-offset-2 dark:focus:ring-offset-[#060B1F]">
-                    Bayar Sekarang
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                    </svg>
-                </button>
-            </div>
-
         </div>
 
         {{-- ===================== PAGE: VA DETAIL ===================== --}}
@@ -183,24 +178,39 @@
                                 {{-- [DINAMIS] Label & icon metode yang dipilih user --}}
                                 <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
                                     <div class="w-8 h-8 rounded-lg bg-white border border-slate-100 flex items-center justify-center" id="va-method-icon">
-                                        <span class="text-[10px] font-black text-blue-700">BCA</span>
+                                        <span class="text-xs font-black text-gray-800 tracking-tight">QRIS</span>
                                     </div>
-                                    <span class="text-sm font-semibold text-slate-900 dark:text-white" id="va-method-label">BCA Virtual Account</span>
+                                    <span class="text-sm font-semibold text-slate-900 dark:text-white" id="va-method-label">QRIS</span>
                                     <span class="ml-1 px-2 py-0.5 rounded-full bg-[#EC4899]/15 border border-[#EC4899]/30 text-[10px] font-semibold text-[#EC4899]">Dipilih</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="p-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {{-- [DINAMIS] Konten pembayaran sesuai metode --}}
+                            <div id="payment-content-area" class="mb-6">
 
-                                {{-- VA Number --}}
-                                <div>
-                                    <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Nomor Virtual Account</p>
+                                {{-- QRIS / GoPay / ShopeePay → tampilkan QR Code --}}
+                                <div id="qr-container" class="hidden flex-col items-center text-center py-4">
+                                    <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Scan QR Code untuk membayar</p>
+                                    <img id="qr-image" src="" alt="QR Code Pembayaran"
+                                        class="w-56 h-56 rounded-2xl border border-slate-200 dark:border-white/10 p-3 bg-white mx-auto">
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-3">
+                                        Gunakan aplikasi e-wallet atau mobile banking untuk scan kode QR di atas.
+                                    </p>
+                                    <a id="deeplink-button" href="#" target="_blank"
+                                        class="hidden mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#EC4899] text-white text-sm font-semibold hover:bg-[#db2777] transition-colors">
+                                        Buka Aplikasi
+                                    </a>
+                                </div>
+
+                                {{-- VA Number → tampilkan nomor VA --}}
+                                <div id="va-container" class="hidden">
+                                    <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3" id="va-label-title">Nomor Virtual Account</p>
                                     <div class="flex items-center gap-3 p-4 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
-                                        <span class="text-xl font-bold text-slate-900 dark:text-white tracking-widest font-mono flex-1">{{ $order->payment_code }}</span>
+                                        <span id="va-number-display" class="text-xl font-bold text-slate-900 dark:text-white tracking-widest font-mono flex-1">-</span>
                                         <button onclick="copyVA(this)"
-                                            data-va="{{ $order->payment_code }}"
+                                            data-va=""
                                             class="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-[#EC4899] text-[#EC4899] hover:bg-[#EC4899] hover:text-white active:bg-[#db2777] text-xs font-semibold transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-[#EC4899]/50">
                                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
@@ -211,31 +221,74 @@
                                     <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Nomor VA unik untuk transaksi ini. Jangan ditransfer ke nomor lain.</p>
                                 </div>
 
-                                {{-- Countdown --}}
-                                <div class="flex flex-col items-center justify-center">
-                                    <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-4">Sisa Waktu Pembayaran</p>
-                                    <div class="relative w-28 h-28">
-                                        <svg class="w-28 h-28 -rotate-90" viewBox="0 0 112 112">
-                                            <circle cx="56" cy="56" r="50" fill="none" stroke="currentColor" class="text-slate-200 dark:text-white/10" stroke-width="8"/>
-                                            <circle id="countdown-ring" cx="56" cy="56" r="50" fill="none"
-                                                stroke="#EC4899" stroke-width="8" stroke-linecap="round"
-                                                stroke-dasharray="314" stroke-dashoffset="50"
-                                                style="transition: stroke-dashoffset 1s linear;"/>
-                                        </svg>
-                                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-0.5">
-                                            <span id="timer-display" class="text-2xl font-bold text-slate-900 dark:text-white tabular-nums leading-none"></span>
-                                            <span class="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">Menit : Detik</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center gap-1.5 mt-3 text-xs text-slate-500 dark:text-slate-400">
-                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                        </svg>
-                                        Expired pada {{ $order->expired_at->format('d M Y, H:i') }} WIB
-                                    </div>
+                                {{-- Loading state --}}
+                                <div id="payment-loading" class="hidden flex flex-col items-center justify-center py-10 gap-3">
+                                    <svg class="w-8 h-8 text-[#EC4899] animate-spin" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400">Memproses pembayaran...</p>
                                 </div>
 
+                                {{-- Countdown --}}
+                                <div class="flex flex-col items-center justify-center mt-8">
+                                    <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-4">
+                                        Sisa Waktu Pembayaran
+                                    </p>
+
+                                    <div class="relative w-32 h-32">
+                                        <svg class="w-32 h-32 -rotate-90" viewBox="0 0 112 112">
+                                            <circle
+                                                cx="56"
+                                                cy="56"
+                                                r="50"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                class="text-slate-200 dark:text-white/10"
+                                                stroke-width="8"/>
+
+                                            <circle
+                                                id="countdown-ring"
+                                                cx="56"
+                                                cy="56"
+                                                r="50"
+                                                fill="none"
+                                                stroke="#EC4899"
+                                                stroke-width="8"
+                                                stroke-linecap="round"
+                                                stroke-dasharray="314"
+                                                stroke-dashoffset="50"/>
+                                        </svg>
+
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                            <span
+                                                id="timer-display"
+                                                class="text-3xl font-bold text-slate-900 dark:text-white tabular-nums">
+                                            </span>
+
+                                            <span class="text-xs text-slate-400">
+                                                Menit : Detik
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-2 mt-4 text-sm text-slate-500 dark:text-slate-400">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" stroke-width="2">
+                                            <path stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+
+                                        Expired pada
+                                        <span id="expired-time">
+                                            {{ $order->expired_at->format('d M Y, H:i') }} WIB
+                                        </span>
+                                    </div>
+
+                                </div>
                             </div>
+                            
 
                             {{-- Payment Steps --}}
                             <div class="mt-6 pt-6 border-t border-slate-200 dark:border-white/8">
@@ -373,6 +426,54 @@
     </div>
 </div>
 
+{{-- ===================== POPUP: PEMBAYARAN BERHASIL ===================== --}}
+<div id="popup-success" class="fixed inset-0 z-50 hidden items-center justify-center p-4"
+    style="background: rgba(0,0,0,0.7); backdrop-filter: blur(6px);">
+    <div class="bg-white dark:bg-[#0F172A] rounded-3xl shadow-2xl max-w-sm w-full p-8 text-center border border-white/10"
+        style="box-shadow: 0 0 60px rgba(236,72,153,0.2);">
+        {{-- Icon --}}
+        <div class="w-20 h-20 rounded-full bg-emerald-500/15 border-2 border-emerald-400 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Pembayaran Berhasil!</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+            Tiket kamu sudah dikonfirmasi. Lihat detail transaksi di <span class="text-[#EC4899] font-semibold">Riwayat Pembayaran</span>.
+        </p>
+        <a href="{{ route('history.show', $order) }}"
+            class="block w-full py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-2xl transition-colors text-sm mb-3">
+            Lihat Detail Transaksi
+        </a>
+        <a href="{{ route('history.index') }}"
+            class="block w-full py-3.5 border border-slate-200 dark:border-white/15 text-slate-600 dark:text-slate-300 hover:border-emerald-400 hover:text-emerald-500 font-semibold rounded-2xl transition-colors text-sm">
+            Riwayat Pembayaran
+        </a>
+    </div>
+</div>
+
+{{-- ===================== POPUP: WAKTU HABIS ===================== --}}
+<div id="popup-expired" class="fixed inset-0 z-50 hidden items-center justify-center p-4"
+    style="background: rgba(0,0,0,0.7); backdrop-filter: blur(6px);">
+    <div class="bg-white dark:bg-[#0F172A] rounded-3xl shadow-2xl max-w-sm w-full p-8 text-center border border-white/10"
+        style="box-shadow: 0 0 60px rgba(239,68,68,0.15);">
+        {{-- Icon --}}
+        <div class="w-20 h-20 rounded-full bg-red-500/15 border-2 border-red-400 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Waktu Pembayaran Habis</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+            Batas waktu pembayaran telah berakhir. Pesanan kamu otomatis dibatalkan. Silakan buat pesanan baru jika masih ingin membeli tiket.
+        </p>
+        <a href="{{ route('home') }}"
+            class="block w-full py-3.5 bg-[#EC4899] hover:bg-[#db2777] text-white font-semibold rounded-2xl transition-colors text-sm mb-3">
+            Kembali ke Beranda
+        </a>
+    </div>
+</div>
+
 {{-- ===================== EXPIRED AT ===================== --}}
 <script>
 // ===== PAGE SWITCHER =====
@@ -392,21 +493,17 @@ const methodIcons = {
     qris:    '<span class="text-xs font-black text-gray-800 tracking-tight">QRIS</span>',
     bca:     '<span class="text-[10px] font-black text-blue-700">BCA</span>',
     bni:     '<span class="text-[10px] font-black text-orange-600">BNI</span>',
-    mandiri: '<span class="text-[8px] font-black text-yellow-600">mandiri</span>',
+    bri:     '<span class="text-[10px] font-black text-blue-700">BRI</span>',
     gopay:   '<span class="text-[9px] font-black text-green-600">GoPay</span>',
-    dana:    '<span class="text-[10px] font-black text-blue-500">DANA</span>',
-    ovo:     '<span class="text-[10px] font-black text-purple-700">OVO</span>',
     shopee:  '<span class="text-[8px] font-black text-orange-500">ShopeePay</span>',
 };
 const methodLabels = {
     qris:    'QRIS',
     bca:     'BCA Virtual Account',
     bni:     'BNI Virtual Account',
-    mandiri: 'Mandiri Virtual Account',
+    bri:     'BRI Virtual Account',
     gopay:   'GoPay',
-    dana:    'DANA',
-    ovo:     'OVO',
-    shopee:  'ShopeePay',
+    shopeepay:  'ShopeePay',
 };
 
 const paymentGuides = {
@@ -443,13 +540,13 @@ const paymentGuides = {
         ]
     },
 
-    mandiri: {
-        title: 'Cara Bayar Melalui Livin Mandiri',
+    bri: {
+        title: 'Cara Bayar Menggunakan BRI Virtual Account',
         steps: [
-            'Login Livin',
-            'Pilih Bayar',
-            'Pilih Virtual Account',
-            'Masukkan nomor VA',
+            'Buka aplikasi BRImo',
+            'Pilih menu BRIVA',
+            'Masukkan nomor Virtual Account',
+            'Periksa nominal pembayaran',
             'Konfirmasi pembayaran'
         ]
     },
@@ -458,42 +555,20 @@ const paymentGuides = {
         title: 'Cara Bayar Menggunakan GoPay',
         steps: [
             'Buka aplikasi Gojek',
-            'Pilih menu GoPay',
-            'Masukkan nomor pembayaran',
-            'Periksa nominal',
+            'Pilih menu Bayar / Scan QR',
+            'Scan kode QR yang ditampilkan',
+            'Periksa nominal pembayaran',
             'Konfirmasi pembayaran'
         ]
     },
 
-    dana: {
-        title: 'Cara Bayar Menggunakan DANA',
-        steps: [
-            'Buka aplikasi DANA',
-            'Pilih Kirim / Bayar',
-            'Masukkan kode pembayaran',
-            'Periksa nominal',
-            'Konfirmasi pembayaran'
-        ]
-    },
-
-    ovo: {
-        title: 'Cara Bayar Menggunakan OVO',
-        steps: [
-            'Buka aplikasi OVO',
-            'Pilih Pembayaran',
-            'Masukkan kode pembayaran',
-            'Periksa nominal',
-            'Konfirmasi pembayaran'
-        ]
-    },
-
-    shopee: {
+    shopeepay: {
         title: 'Cara Bayar Menggunakan ShopeePay',
         steps: [
-            'Buka aplikasi Shopee',
-            'Pilih ShopeePay',
-            'Masukkan kode pembayaran',
-            'Periksa nominal',
+            'Buka aplikasi Shopee / ShopeePay',
+            'Pilih menu Bayar / Scan QR',
+            'Scan atau buka link pembayaran',
+            'Periksa nominal pembayaran',
             'Konfirmasi pembayaran'
         ]
     }
@@ -554,12 +629,41 @@ document.querySelectorAll('.method-card').forEach(card => {
 });
 
 // ===== COUNTDOWN TIMER =====
-const expiredAt = new Date("{{ $order->expired_at->toIso8601String() }}");
-const TOTAL_INIT = (expiredAt - new Date("{{ $order->created_at->toIso8601String() }}")) / 1000 || (15 * 60);
+let expiredAt = new Date("{{ $order->payment_expired_at?->toIso8601String() ?? $order->expired_at->toIso8601String() }}");
+let TOTAL_INIT = (expiredAt - new Date("{{ $order->created_at->toIso8601String() }}")) / 1000 || (15 * 60);
+
+// Update jika ada expired_at baru dari hasil charge
+function refreshExpiry() {
+    if (window.__expiredAt) {
+        expiredAt = window.__expiredAt;
+        TOTAL_INIT = (expiredAt - new Date()) / 1000;
+    }
+}
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
+function showSuccessPopup() {
+    const popup = document.getElementById('popup-success');
+    popup.classList.remove('hidden');
+    popup.classList.add('flex');
+    // Disable tombol bayar supaya tidak bisa klik lagi
+    const btn = document.getElementById('pay-button');
+    if (btn) btn.disabled = true;
+}
+
+function showExpiredPopup() {
+    const popup = document.getElementById('popup-expired');
+    popup.classList.remove('hidden');
+    popup.classList.add('flex');
+    // Disable tombol bayar
+    const btn = document.getElementById('pay-button');
+    if (btn) { btn.disabled = true; btn.classList.add('opacity-50', 'cursor-not-allowed'); }
+    // Stop polling
+    if (statusPollingInterval) clearInterval(statusPollingInterval);
+}
+
 function updateTimer() {
+    refreshExpiry();
     const now = new Date();
     let remaining = Math.floor((expiredAt - now) / 1000);
 
@@ -570,6 +674,7 @@ function updateTimer() {
         if (mm) mm.textContent = '00';
         if (ms) ms.textContent = '00';
         if (td) td.textContent = '00:00';
+        showExpiredPopup();
         return;
     }
 
@@ -612,92 +717,151 @@ function copyVA(btn) {
 }
 </script>
 
-{{-- MIDTRANS SNAP --}}
-<script
-    src="https://app.sandbox.midtrans.com/snap/snap.js"
-    data-client-key="{{ config('midtrans.client_key') }}">
-</script>
-
 <script>
+
+let selectedMethod = 'qris'; // default sesuai metode pertama di grid
+let statusPollingInterval = null;
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const btn = document.getElementById('pay-button');
+    // Sinkronkan selectedMethod saat user klik kartu metode
+    document.querySelectorAll('.method-card').forEach(card => {
+        card.addEventListener('click', () => {
+            selectedMethod = card.dataset.method;
+        });
+    });
 
+    const btn = document.getElementById('pay-button');
     if (!btn) return;
 
     btn.addEventListener('click', async () => {
 
         try {
-
             btn.disabled = true;
+            btn.innerHTML = 'Memproses...';
 
             const response = await fetch(
-                 "{{ route('payment.create', $order) }}",
+                "{{ route('payment.charge', $order) }}",
                 {
                     method: 'POST',
                     headers: {
-                        'X-CSRF-TOKEN':
-                        document.querySelector(
-                            'meta[name="csrf-token"]'
-                        ).content,
-
-                        'Accept':
-                        'application/json'
-                    }
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ payment_method: selectedMethod }),
                 }
             );
 
             const data = await response.json();
 
-                console.log(data);
+            if (!data.success) {
+                alert(data.message || 'Gagal memproses pembayaran.');
+                btn.disabled = false;
+                btn.innerHTML = 'Bayar Sekarang';
+                return;
+            }
 
-                if (!data.snap_token) {
-                    alert(data.error || 'Snap Token tidak ditemukan');
-                    return;
-                }
-
-                snap.pay(data.snap_token, {
-
-                onSuccess(result) {
-
-                    alert(
-                        'Pembayaran berhasil!'
-                    );
-
-                    location.reload();
-                },
-
-                onPending(result) {
-
-                    alert(
-                        'Menunggu pembayaran'
-                    );
-                },
-
-                onError(result) {
-
-                    alert(
-                        'Pembayaran gagal'
-                    );
-                }
-
-            });
+            renderPaymentResult(data);
+            showVA();
+            startStatusPolling();
 
         } catch (error) {
-
             console.error(error);
-
-            alert(
-                'Terjadi kesalahan'
-            );
+            alert('Terjadi kesalahan. Silakan coba lagi.');
         }
 
         btn.disabled = false;
-
+        btn.innerHTML = 'Bayar Sekarang';
     });
 
 });
+
+/**
+ * Tampilkan hasil charge (QR / VA) di halaman page-va
+ */
+function renderPaymentResult(data) {
+    const qrContainer = document.getElementById('qr-container');
+    const vaContainer = document.getElementById('va-container');
+    const deeplinkBtn = document.getElementById('deeplink-button');
+
+    qrContainer.classList.add('hidden');
+    vaContainer.classList.add('hidden');
+    deeplinkBtn.classList.add('hidden');
+
+    const isQrMethod = ['qris', 'gopay', 'shopeepay'].includes(data.method) && data.qr_url;
+    const isVaMethod = ['bca', 'bni', 'bri'].includes(data.method) && data.payment_code;
+
+    if (isQrMethod) {
+        qrContainer.classList.remove('hidden');
+        qrContainer.classList.add('flex');
+        document.getElementById('qr-image').src = data.qr_url;
+
+        if (data.deeplink_url) {
+            deeplinkBtn.href = data.deeplink_url;
+            deeplinkBtn.classList.remove('hidden');
+        }
+    } else if (isVaMethod) {
+        vaContainer.classList.remove('hidden');
+
+        const titleEl = document.getElementById('va-label-title');
+        const numberEl = document.getElementById('va-number-display');
+        const copyBtn = numberEl.closest('div').querySelector('button[onclick^="copyVA"]');
+
+        titleEl.textContent ='Nomor Virtual Account';
+
+        numberEl.textContent = data.payment_code;
+        copyBtn.setAttribute('data-va', data.payment_code);
+    }
+
+    // Update label & icon metode di header page-va
+    const iconEl = document.getElementById('va-method-icon');
+    const labelEl = document.getElementById('va-method-label');
+    if (iconEl && methodIcons[data.method]) iconEl.innerHTML = methodIcons[data.method];
+    if (labelEl && methodLabels[data.method]) labelEl.textContent = methodLabels[data.method];
+
+    // Update payment guide
+    const guideTitle = document.getElementById('payment-guide-title');
+    if (guideTitle && paymentGuides[data.method]) {
+        guideTitle.textContent = paymentGuides[data.method].title;
+    }
+    const stepEls = document.querySelectorAll('.payment-step');
+    if (paymentGuides[data.method]) {
+        stepEls.forEach((step, index) => {
+            if (paymentGuides[data.method].steps[index]) {
+                step.textContent = paymentGuides[data.method].steps[index];
+            }
+        });
+    }
+
+    
+}
+
+/**
+ * Polling status order tiap 5 detik. Redirect jika sudah paid/expired/cancelled.
+ */
+function startStatusPolling() {
+    if (statusPollingInterval) return;
+
+    statusPollingInterval = setInterval(async () => {
+        try {
+            const res = await fetch("{{ route('payment.status', $order) }}", {
+                headers: { 'Accept': 'application/json' },
+            });
+            const data = await res.json();
+
+            if (data.status === 'paid') {
+                clearInterval(statusPollingInterval);
+                showSuccessPopup();
+            } else if (data.status === 'expired' || data.status === 'cancelled') {
+                clearInterval(statusPollingInterval);
+                showExpiredPopup();
+            }
+        } catch (e) {
+            console.error('Status polling error:', e);
+        }
+    }, 5000);
+}
 
 </script>
 

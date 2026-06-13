@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderHistoryController;
 
 // Homepage
 Route::get('/', [EventController::class, 'index'])->name('home');
@@ -17,12 +18,13 @@ Route::get('/events/{slug}', [EventController::class, 'show'])
 Route::get('/payment/{order}', [PaymentController::class, 'show'])
     ->name('payment.show');
 
-Route::post(
-    '/payment/create/{order}',
-    [PaymentController::class, 'createTransaction']
-)
-    ->name('payment.create')
-    ->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::post('/payment/{order}/charge', [PaymentController::class, 'charge'])
+        ->name('payment.charge');
+
+    Route::get('/payment/{order}/status', [PaymentController::class, 'checkStatus'])
+        ->name('payment.status');
+});
 
 //Route Order
 Route::post('/orders', [OrderController::class, 'store'])
@@ -36,6 +38,12 @@ Route::middleware('auth')->group(function () {
         '/checkout',
         [CheckoutController::class, 'store']
     )->name('checkout.store');
+
+    // Riwayat Pembayaran
+    Route::prefix('riwayat-pembayaran')->name('history.')->group(function () {
+        Route::get('/',        [OrderHistoryController::class, 'index'])->name('index');
+        Route::get('/{order}', [OrderHistoryController::class, 'show'])->name('show');
+    });
 
 });
 

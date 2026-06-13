@@ -18,10 +18,21 @@ class Order extends Model
         'payment_code',
         'status',
         'expired_at',
+        'payment_method',
+        'midtrans_order_id',
+        'payment_code',
+        'biller_code',
+        'bill_key',
+        'qr_url',
+        'deeplink_url',
+        'payment_expired_at',
+        'transaction_id',
+        'payment_type',
     ];
 
     protected $casts = [
         'expired_at' => 'datetime',
+        'payment_expired_at' => 'datetime',
     ];
 
     public function event()
