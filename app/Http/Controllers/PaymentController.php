@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Ticket;
 use App\Services\MidtransService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Midtrans\Notification;
 
 class PaymentController extends Controller
@@ -22,13 +24,6 @@ class PaymentController extends Controller
         if ($order->status !== 'pending') {
             return redirect()->route('home')
                 ->with('info', 'Pesanan ini sudah diproses atau dibatalkan.');
-        }
-
-        // Cek expired_at — jika waktu sudah lewat, update status dan tolak akses
-        if ($order->expired_at && now()->gt($order->expired_at)) {
-            $order->update(['status' => 'expired']);
-            return redirect()->route('home')
-                ->with('info', 'Waktu pembayaran telah habis. Pesanan dibatalkan.');
         }
 
         $order->load(['event', 'ticketCategory']);
@@ -64,12 +59,6 @@ class PaymentController extends Controller
     {
         abort_if($order->user_id !== Auth::id(), 403);
         abort_if($order->status !== 'pending', 400, 'Pesanan tidak valid.');
-
-        // Blokir charge jika waktu sudah habis
-        if ($order->expired_at && now()->gt($order->expired_at)) {
-            $order->update(['status' => 'expired']);
-            return response()->json(['success' => false, 'message' => 'Waktu pembayaran telah habis.'], 422);
-        }
 
         $request->validate([
             'payment_method' =>
@@ -142,6 +131,20 @@ class PaymentController extends Controller
                     'transaction_id' => $notification->transaction_id,
                     'payment_type' => $notification->payment_type,
                 ]);
+
+                // Auto-generate tiket jika belum ada
+                if (!$order->ticket) {
+                    $quantity = $order->quantity ?? 1;
+                    for ($i = 0; $i < $quantity; $i++) {
+                        $ticketCode = 'TIX-' . strtoupper(Str::random(4)) . '-' . $order->id . '-' . ($i + 1);
+                        Ticket::create([
+                            'order_id'    => $order->id,
+                            'ticket_code' => $ticketCode,
+                            'qr_code'     => $ticketCode, // value untuk di-encode jadi QR
+                            'status'      => 'active',
+                        ]);
+                    }
+                }
                 break;
 
             case 'expire':

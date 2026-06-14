@@ -6,6 +6,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderHistoryController;
+use App\Http\Controllers\TicketController;
 
 // Homepage
 Route::get('/', [EventController::class, 'index'])->name('home');
@@ -34,10 +35,13 @@ Route::post('/orders', [OrderController::class, 'store'])
 //Route Checkout
 Route::middleware('auth')->group(function () {
 
-    Route::post(
-        '/checkout',
-        [CheckoutController::class, 'store']
-    )->name('checkout.store');
+    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+
+    // Tiket Saya
+    Route::prefix('tiket-saya')->name('tickets.')->group(function () {
+        Route::get('/',         [TicketController::class, 'index'])->name('index');
+        Route::get('/{ticket}', [TicketController::class, 'show'])->name('show');
+    });
 
     // Riwayat Pembayaran
     Route::prefix('riwayat-pembayaran')->name('history.')->group(function () {
