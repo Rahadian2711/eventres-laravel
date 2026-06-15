@@ -2,59 +2,86 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
     /**
-     * Display the user's profile form.
+     * Tampilkan halaman profil.
+     * Route: GET /profil
      */
-    public function edit(Request $request): View
+    public function show()
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $user = Auth::user();
+
+        $totalOrders  = $user->orders()->count();
+        $paidOrders   = $user->orders()->where('status', 'paid')->count();
+        $totalSpent   = $user->orders()->where('status', 'paid')->sum('total');
+
+        return view('profile.show', compact('user', 'totalOrders', 'paidOrders', 'totalSpent'));
     }
 
     /**
-     * Update the user's profile information.
+     * Update data profil.
+     * Route: POST /profil/update
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request)
     {
-        $request->user()->fill($request->validated());
+        $user = Auth::user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $request->validate([
+            'name'   => 'required|string|max:255',
+            'email'  => ['required', 'email', Rule::unique('users')->ignore($user->id)],
+            'phone'  => 'nullable|string|max:20',
+            'bio'    => 'nullable|string|max:300',
+            'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+        // Upload avatar
+        if ($request->hasFile('avatar')) {
+            // Hapus avatar lama
+            if ($user->avatar) {
+                Storage::disk('public')->delete($user->avatar);
+            }
+            $path = $request->file('avatar')->store('avatars', 'public');
+            $user->avatar = $path;
         }
 
-        $request->user()->save();
+        $user->name  = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->bio   = $request->bio;
+        $user->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return redirect()->route('profile.show')
+            ->with('success', 'Profil berhasil diperbarui!');
     }
 
     /**
-     * Delete the user's account.
+     * Update password.
+     * Route: POST /profil/password
      */
-    public function destroy(Request $request): RedirectResponse
+    public function updatePassword(Request $request)
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
+        $request->validate([
+            'current_password' => 'required',
+            'password'         => 'required|min:8|confirmed',
         ]);
 
-        $user = $request->user();
+        $user = Auth::user();
 
-        Auth::logout();
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'Password saat ini tidak sesuai.']);
+        }
 
-        $user->delete();
+        $user->password = Hash::make($request->password);
+        $user->save();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        return redirect()->route('profile.show')
+            ->with('success', 'Password berhasil diubah!');
     }
 }

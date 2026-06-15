@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\ProfileController;
 
 // Homepage
 Route::get('/', [EventController::class, 'index'])->name('home');
@@ -36,6 +37,11 @@ Route::post('/orders', [OrderController::class, 'store'])
 Route::middleware('auth')->group(function () {
 
     Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+
+    // Profil
+    Route::get('/profil',           [ProfileController::class, 'show'])->name('profile.show');
+    Route::post('/profil/update',   [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profil/password', [ProfileController::class, 'updatePassword'])->name('profile.password');
 
     // Tiket Saya
     Route::prefix('tiket-saya')->name('tickets.')->group(function () {

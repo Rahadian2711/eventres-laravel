@@ -35,7 +35,7 @@
                     Beranda
                 </a>
                 <a href="#artis" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Artis</a>
-                <a href="{{ route('tickets.index') }}" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Tiket Saya</a>
+                <a href="#" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Tiket Saya</a>
                 <a href="#" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Tentang Kami</a>
             </div>
 
@@ -101,8 +101,12 @@
                 <div class="relative" x-data="{ open: false }">
                     <button @click="open = !open" @click.outside="open = false"
                         class="flex items-center gap-2.5 pl-2 pr-3 py-1.5 rounded-full bg-gray-100 dark:bg-white/10 border border-transparent dark:border-white/8 hover:bg-gray-200 dark:hover:bg-white/10 transition">
-                        <div class="w-6 h-6 rounded-full bg-gradient-to-br from-[#E91E8C] to-purple-600 flex items-center justify-center text-white text-xs font-bold">
-                            {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                        <div class="w-6 h-6 rounded-full overflow-hidden bg-gradient-to-br from-[#E91E8C] to-purple-600 flex items-center justify-center text-white text-xs font-bold shrink-0">
+                            @if(Auth::user()->avatar)
+                                <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="avatar" class="w-full h-full object-cover">
+                            @else
+                                {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                            @endif
                         </div>
                         <span class="text-sm font-medium text-gray-700 dark:text-white hidden md:block">Hi, {{ Auth::user()->name }}</span>
                         <svg class="w-3.5 h-3.5 text-gray-400 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
@@ -127,7 +131,7 @@
                             <p class="text-xs text-gray-500 dark:text-slate-400 mt-0.5 truncate">{{ Auth::user()->email }}</p>
                         </div>
 
-                        <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-slate-300 hover:text-[#E91E8C] hover:bg-gray-100 dark:hover:bg-white/5 transition">
+                        <a href="{{ route('profile.show') }}" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-slate-300 hover:text-[#E91E8C] hover:bg-gray-100 dark:hover:bg-white/5 transition">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                             </svg>
@@ -140,10 +144,8 @@
                             Tiket Saya
                         </a>
                         <a href="{{ route('history.index') }}" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-slate-300 hover:text-[#E91E8C] hover:bg-gray-100 dark:hover:bg-white/5 transition">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-3-6.7L21 8"/>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-3-6.7L21 8"/>
                             </svg>
                             Riwayat Pembayaran
                         </a>
