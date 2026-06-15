@@ -19,7 +19,11 @@ class Artist extends Model
         return $this->belongsToMany(Event::class);
     }
 
-    // Konser mendatang
+    public function songs()
+    {
+        return $this->hasMany(ArtistSong::class);
+    }
+
     public function upcomingEvents()
     {
         return $this->belongsToMany(Event::class)
@@ -27,11 +31,10 @@ class Artist extends Model
                 $q->where('start_time', '>=', now())
             )
             ->where('status', 'published')
-            ->with('schedules')
-            ->latest();
+            ->with(['schedules', 'ticketCategories', 'category'])
+            ->orderBy('events.created_at', 'desc');
     }
 
-    // Konser sebelumnya
     public function pastEvents()
     {
         return $this->belongsToMany(Event::class)
@@ -39,7 +42,7 @@ class Artist extends Model
                 $q->where('start_time', '<', now())
             )
             ->where('status', 'published')
-            ->with('schedules')
-            ->latest();
+            ->with(['schedules', 'ticketCategories', 'category'])
+            ->orderBy('events.created_at', 'desc');
     }
 }

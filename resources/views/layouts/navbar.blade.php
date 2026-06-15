@@ -13,7 +13,7 @@
 <nav x-data="{ notifOpen: false, userOpen: false }"
      class="sticky top-0 z-50 bg-white dark:bg-[#0D1526]/95 backdrop-blur-xl border-b border-gray-100 dark:border-white/8 shadow-sm">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16 gap-4">
+        <div class="flex items-center h-16 gap-8">
 
             {{-- LOGO --}}
             <a href="{{ route('home') }}" class="flex items-center gap-2.5 flex-shrink-0">
@@ -29,31 +29,31 @@
             </a>
 
             {{-- NAV LINKS --}}
-            <div class="hidden md:flex items-center gap-7">
+            <div class="hidden md:flex items-center gap-7 ml-16">
                 <a href="{{ route('home') }}"
                     class="text-sm font-semibold {{ request()->routeIs('home') ? 'text-[#E91E8C] border-b-2 border-[#E91E8C] pb-0.5' : 'text-gray-600 dark:text-slate-300 hover:text-[#E91E8C]' }} transition">
                     Beranda
                 </a>
-                <a href="{{ route('artists.index') }}" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Artis</a>
-                <a href="#" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Tiket Saya</a>
+                <a href="{{ route('artists.index') }}"
+                    class="text-sm font-medium transition
+                    {{ request()->routeIs('artists.*')
+                        ? 'text-[#E91E8C] border-b-2 border-[#E91E8C] pb-0.5'
+                        : 'text-gray-600 dark:text-slate-300 hover:text-[#E91E8C]' }}">
+                    Artis
+                </a>
+                <a href="{{ route('concerts.index') }}"
+                    class="text-sm font-medium transition
+                    {{ request()->routeIs('concerts.*')
+                        ? 'text-[#E91E8C] border-b-2 border-[#E91E8C] pb-0.5'
+                        : 'text-gray-600 dark:text-slate-300 hover:text-[#E91E8C]' }}">
+                    Konser
+                </a>
                 <a href="#" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Tentang Kami</a>
             </div>
 
-            {{-- SEARCH --}}
-            <form action="{{ route('home') }}" method="GET"
-                class="hidden lg:flex items-center bg-gray-100 dark:bg-[#1a2540] border border-transparent dark:border-[#E91E8C]/40 rounded-full px-4 py-2 flex-1 max-w-xs hover:dark:border-[#E91E8C]/70 transition">
-                <input type="text" name="search" placeholder="Cari konser, artis, atau venue..."
-                value="{{ request('search') }}"
-                class="bg-transparent border-0 outline-none ring-0 focus:outline-none focus:ring-0 text-sm w-full text-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-slate-500">
-                <button type="submit">
-                    <svg class="w-4 h-4 text-gray-400 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                    </svg>
-                </button>
-            </form>
 
             {{-- RIGHT SIDE --}}
-            <div class="flex items-center gap-2 flex-shrink-0">
+            <div class="flex items-center gap-2 flex-shrink-0 ml-auto">
 
                 {{-- Dark Mode Toggle --}}
                 <button id="theme-toggle" aria-label="Toggle dark mode"

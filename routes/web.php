@@ -17,6 +17,9 @@ Route::get('/', [EventController::class, 'index'])->name('home');
 Route::get('/artis', [ArtistController::class, 'index'])->name('artists.index');
 Route::get('/artis/{slug}', [ArtistController::class, 'show'])->name('artists.show');
 
+// Konser page
+Route::get('/konser', [EventController::class, 'concerts'])->name('concerts.index');
+
 //Detail event
 Route::get('/events/{slug}', [EventController::class, 'show'])
     ->name('events.show');

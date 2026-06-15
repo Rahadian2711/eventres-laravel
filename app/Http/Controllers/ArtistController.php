@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class ArtistController extends Controller
 {
-    /**
-     * Daftar semua artis.
-     * Route: GET /artis
-     */
     public function index(Request $request)
     {
         $query = Artist::withCount('events');
@@ -19,23 +15,20 @@ class ArtistController extends Controller
             $query->where('name', 'like', '%' . $request->search . '%');
         }
 
-        $artists = $query->orderBy('name')->paginate(12)->withQueryString();
+        $artists = $query->orderBy('name')->paginate(18)->withQueryString();
 
         return view('artists.index', compact('artists'));
     }
 
-    /**
-     * Detail artis + konser terkait.
-     * Route: GET /artis/{slug}
-     */
     public function show(string $slug)
     {
-        $artist = Artist::where('slug', $slug)->firstOrFail();
+        $artist = Artist::with('songs')
+            ->where('slug', $slug)
+            ->firstOrFail();
 
         $upcomingEvents = $artist->upcomingEvents()->get();
         $pastEvents     = $artist->pastEvents()->get();
 
-        // Artis lain (exclude artis ini)
         $similarArtists = Artist::where('id', '!=', $artist->id)
             ->inRandomOrder()
             ->take(4)

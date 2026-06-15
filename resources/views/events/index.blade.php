@@ -101,23 +101,23 @@ dark:to-transparent">
 
     {{-- Artist list dari organizer events yang ada --}}
     <div class="flex items-center gap-6 overflow-visible justify-center flex-wrap py-4">
-        @php
-            $artists = [
-                ['name' => 'NOAH',       'emoji' => '🎸'],
-                ['name' => 'Sheila On 7','emoji' => '🎵'],
-                ['name' => 'Tulus',      'emoji' => '🎤'],
-                ['name' => 'Nadin Amizah','emoji' => '🎶'],
-                ['name' => 'Dewa 19',    'emoji' => '🥁'],
-                ['name' => 'Pamungkas',  'emoji' => '🎹'],
-                ['name' => 'Hindia',     'emoji' => '🎸'],
-                ['name' => 'Juicy Luicy','emoji' => '🎷'],
-                ['name' => 'Sal Priadi', 'emoji' => '🎵'],
-                ['name' => 'Yura Yunita','emoji' => '🎤'],
-            ];
-        @endphp
+    @php
+        $artists = [
+            ['name' => 'NOAH',        'slug' => 'noah',        'emoji' => '🎸'],
+            ['name' => 'Sheila On 7', 'slug' => 'sheila-on-7', 'emoji' => '🎵'],
+            ['name' => 'Tulus',       'slug' => 'tulus',       'emoji' => '🎤'],
+            ['name' => 'Nadin Amizah','slug' => 'nadin-amizah','emoji' => '🎶'],
+            ['name' => 'Dewa 19',     'slug' => 'dewa-19',     'emoji' => '🥁'],
+            ['name' => 'Pamungkas',   'slug' => 'pamungkas',   'emoji' => '🎹'],
+            ['name' => 'Hindia',      'slug' => 'hindia',      'emoji' => '🎸'],
+            ['name' => 'Juicy Luicy', 'slug' => 'juicy-luicy', 'emoji' => '🎷'],
+            ['name' => 'Sal Priadi',  'slug' => 'sal-priadi',  'emoji' => '🎵'],
+            ['name' => 'Yura Yunita', 'slug' => 'yura-yunita', 'emoji' => '🎤'],
+        ];
+    @endphp
 
         @foreach($artists as $artist)
-        <div class="flex flex-col items-center gap-2 cursor-pointer group flex-shrink-0">
+        <a href="{{ route('artists.show', $artist['slug']) }}" class="flex flex-col items-center gap-2 cursor-pointer group flex-shrink-0">
             <div class="w-[72px] h-[72px] rounded-full bg-white border border-gray-200 shadow-md dark:bg-gradient-to-br dark:from-[#1A2235] dark:to-[#0F172A] dark:border-white/10
                 flex items-center justify-center text-2xl shadow-md
                 ring-2 ring-transparent group-hover:ring-[#E91E8C] transition-all duration-200
@@ -127,10 +127,10 @@ dark:to-transparent">
             <span class="text-xs font-semibold text-gray-700 dark:text-slate-300 group-hover:text-[#E91E8C] transition text-center leading-tight">
                 {{ $artist['name'] }}
             </span>
-        </div>
+        </a>
         @endforeach
 
-        <div class="flex flex-col items-center gap-2 cursor-pointer group flex-shrink-0">
+        <a href="{{ route('artists.index') }}" class="flex flex-col items-center gap-2 cursor-pointer group flex-shrink-0">
             <div class="w-[48px] h-[48px] rounded-full bg-gray-100 dark:bg-[#131A2A] dark:ring-white/10
                 flex items-center justify-center
                 ring-2 ring-gray-200 group-hover:ring-[#E91E8C] transition-all duration-200">
@@ -139,7 +139,7 @@ dark:to-transparent">
                 </svg>
             </div>
             <span class="text-xs font-semibold text-[#E91E8C] text-center leading-tight">Lihat<br>Semua</span>
-        </div>
+        </a>
     </div>
 </section>
 
@@ -152,7 +152,7 @@ dark:to-transparent">
         <h2 class="text-xl font-extrabold text-gray-900 dark:text-white flex items-center gap-2">
             🔥 Konser Populer
         </h2>
-        <a href="#semua-konser" class="text-sm font-semibold text-[#E91E8C] hover:underline flex items-center gap-1">
+        <a href="{{ route('concerts.index') }}" class="text-sm font-semibold text-[#E91E8C] hover:underline flex items-center gap-1">
             Lihat Semua
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -294,7 +294,7 @@ dark:to-transparent">
 <section id="semua-konser" class="max-w-[1400px] mx-auto px-6 lg:px-8 py-6">
     <div class="flex items-center justify-between mb-5">
         <h2 class="text-xl font-extrabold text-gray-900 dark:text-white">Semua Konser</h2>
-        <a href="#" class="text-sm font-semibold text-[#E91E8C] hover:underline flex items-center gap-1">
+        <a href="{{ route('concerts.index') }}" class="text-sm font-semibold text-[#E91E8C] hover:underline flex items-center gap-1">
             Lihat Semua
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>

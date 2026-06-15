@@ -9,7 +9,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            CategorySeeder::class,
+            CategorySeeder::class,  // ← tetap ada, jangan dihapus
+            ArtistSeeder::class,    // ← harus sebelum EventSeeder
             EventSeeder::class,
         ]);
     }
