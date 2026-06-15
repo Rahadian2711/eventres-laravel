@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\OrderController;
@@ -11,6 +12,10 @@ use App\Http\Controllers\ProfileController;
 
 // Homepage
 Route::get('/', [EventController::class, 'index'])->name('home');
+
+// Artist routes
+Route::get('/artis', [ArtistController::class, 'index'])->name('artists.index');
+Route::get('/artis/{slug}', [ArtistController::class, 'show'])->name('artists.show');
 
 //Detail event
 Route::get('/events/{slug}', [EventController::class, 'show'])

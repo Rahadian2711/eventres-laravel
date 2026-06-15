@@ -34,7 +34,7 @@
                     class="text-sm font-semibold {{ request()->routeIs('home') ? 'text-[#E91E8C] border-b-2 border-[#E91E8C] pb-0.5' : 'text-gray-600 dark:text-slate-300 hover:text-[#E91E8C]' }} transition">
                     Beranda
                 </a>
-                <a href="#artis" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Artis</a>
+                <a href="{{ route('artists.index') }}" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Artis</a>
                 <a href="#" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Tiket Saya</a>
                 <a href="#" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Tentang Kami</a>
             </div>

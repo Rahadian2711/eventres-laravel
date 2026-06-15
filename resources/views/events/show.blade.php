@@ -97,6 +97,56 @@
                     </p>
                 </div>
 
+                {{-- ARTIS / LINEUP --}}
+                @if($event->artists->count() > 0)
+                <div class="mt-10">
+                    @if($event->artists->count() === 1)
+                        {{-- Event tunggal: tampil simpel --}}
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Artis</h2>
+                        @foreach($event->artists as $artist)
+                        <a href="{{ route('artists.show', $artist->slug) }}"
+                            class="inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 hover:border-[#E91E8C]/40 transition-all">
+                            <div class="w-10 h-10 rounded-xl overflow-hidden shrink-0">
+                                @if($artist->image)
+                                    <img src="{{ asset('storage/' . $artist->image) }}" alt="{{ $artist->name }}" class="w-full h-full object-cover">
+                                @else
+                                    <div class="w-full h-full bg-gradient-to-br from-[#EC4899] to-purple-600 flex items-center justify-center">
+                                        <span class="text-white text-xs font-bold">{{ strtoupper(substr($artist->name, 0, 1)) }}</span>
+                                    </div>
+                                @endif
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900 dark:text-white text-sm">{{ $artist->name }}</p>
+                                @if($artist->genre)
+                                <p class="text-xs text-gray-500">{{ $artist->genre }}</p>
+                                @endif
+                            </div>
+                        </a>
+                        @endforeach
+                    @else
+                        {{-- Festival / banyak artis: tampil lineup --}}
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Lineup Artis</h2>
+                        <div class="flex flex-wrap gap-3">
+                            @foreach($event->artists as $artist)
+                            <a href="{{ route('artists.show', $artist->slug) }}"
+                                class="flex items-center gap-2.5 px-3 py-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 hover:border-[#E91E8C]/40 hover:shadow-sm transition-all">
+                                <div class="w-8 h-8 rounded-lg overflow-hidden shrink-0">
+                                    @if($artist->image)
+                                        <img src="{{ asset('storage/' . $artist->image) }}" alt="{{ $artist->name }}" class="w-full h-full object-cover">
+                                    @else
+                                        <div class="w-full h-full bg-gradient-to-br from-[#EC4899] to-purple-600 flex items-center justify-center">
+                                            <span class="text-white text-[10px] font-bold">{{ strtoupper(substr($artist->name, 0, 1)) }}</span>
+                                        </div>
+                                    @endif
+                                </div>
+                                <span class="text-sm font-medium text-gray-900 dark:text-white">{{ $artist->name }}</span>
+                            </a>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+                @endif
+
                 {{-- Penampilan Spesial --}}
                 @if($event->tags->count() > 0)
                 <div class="mt-10">

@@ -40,4 +40,10 @@ class Event extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    // Relasi many-to-many ke Artist
+    public function artists()
+    {
+        return $this->belongsToMany(Artist::class);
+    }
 }

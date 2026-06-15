@@ -31,7 +31,8 @@ class EventController extends Controller
         $event = Event::with([
             'category',
             'schedules',
-            'ticketCategories'
+            'ticketCategories',
+            'artists',
         ])
         ->where('slug', $slug)
         ->firstOrFail();
