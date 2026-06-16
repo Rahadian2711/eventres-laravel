@@ -174,7 +174,7 @@ class EventSeeder extends Seeder
                     ['name' => '3 Day Pass',  'price' => 1200000, 'quota' => 3000, 'desc' => 'Akses 3 hari festival, hemat lebih banyak'],
                     ['name' => 'VIP 3 Day',   'price' => 2500000, 'quota' => 500,  'desc' => 'Akses VIP 3 hari, lounge eksklusif, free F&B'],
                 ],
-                'extra_artists' => ['tulus', 'hindia', 'pamungkas'],
+                'extra_artists' => ['tulus', 'hindia', 'pamungkas','the-changcuters','kotak'],
             ],
             [
                 'category_id' => 2, 'artist' => null,
@@ -189,7 +189,7 @@ class EventSeeder extends Seeder
                     ['name' => '3 Day Pass',  'price' => 1350000, 'quota' => 5000,  'desc' => 'Akses 3 hari festival'],
                     ['name' => 'VIP',         'price' => 3000000, 'quota' => 500,   'desc' => 'Akses VIP all-in dengan hospitality eksklusif'],
                 ],
-                'extra_artists' => ['maliq-dessentials', 'sal-priadi'],
+                'extra_artists' => ['maliq-dessentials', 'sal-priadi','the-changcuters'],
             ],
             [
                 'category_id' => 2, 'artist' => null,
@@ -285,7 +285,7 @@ class EventSeeder extends Seeder
                     ['name' => '2 Day Pass',  'price' => 800000,  'quota' => 5000,  'desc' => 'Akses 2 hari festival, hemat lebih banyak'],
                     ['name' => 'VIP 2 Day',   'price' => 2000000, 'quota' => 500,   'desc' => 'Akses VIP 2 hari, lounge eksklusif, free F&B'],
                 ],
-                'extra_artists' => ['barasuara', 'noah', 'sheila-on-7'],
+                'extra_artists' => ['barasuara', 'noah', 'sheila-on-7','kotak'],
             ],
             [
                 'category_id' => 2, 'artist' => null,
@@ -300,7 +300,7 @@ class EventSeeder extends Seeder
                     ['name' => '3 Day Pass',  'price' => 1300000, 'quota' => 3000, 'desc' => 'Akses 3 hari festival'],
                     ['name' => 'VIP 3 Day',   'price' => 2800000, 'quota' => 400,  'desc' => 'Akses VIP 3 hari, hospitality premium'],
                 ],
-                'extra_artists' => ['raisa', 'isyana-sarasvati', 'ardhito-pramono', 'mocca'],
+                'extra_artists' => ['raisa', 'isyana-sarasvati', 'ardhito-pramono', 'the-changcuters'],
             ],
             [
                 'category_id' => 3, 'artist' => 'raisa',

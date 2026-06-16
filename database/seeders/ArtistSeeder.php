@@ -17,6 +17,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'NOAH',
                 'slug'  => 'noah',
                 'genre' => 'Rock',
+                'image' => 'artists/noah.jpg',
                 'bio'   => 'NOAH adalah band rock asal Indonesia yang terbentuk sejak 1996 dengan nama Peterpan sebelum berganti nama menjadi NOAH pada 2012. Dikenal dengan vokal khas Ariel Noah dan musik yang emosional, NOAH telah merilis berbagai album ikonik dan menjadi salah satu band terbesar di Indonesia.',
                 'songs' => [
                     ['title' => 'Separuh Aku',                'album' => 'Seperti Seharusnya', 'year' => '2012'],
@@ -30,6 +31,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Sheila On 7',
                 'slug'  => 'sheila-on-7',
                 'genre' => 'Pop Rock',
+                'image' => 'artists/sheila-on-7.jpg',
                 'bio'   => 'Sheila On 7 adalah band pop rock asal Yogyakarta yang berdiri sejak 1996. Dengan lirik yang puitis dan melodi yang catchy, mereka berhasil meraih hati jutaan penggemar di seluruh Indonesia. Album perdana mereka terjual lebih dari 1,5 juta kopi.',
                 'songs' => [
                     ['title' => 'Dan',           'album' => 'Sheila On 7',                   'year' => '1999'],
@@ -43,6 +45,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Tulus',
                 'slug'  => 'tulus',
                 'genre' => 'Pop',
+                'image' => 'artists/tulus.jpg',
                 'bio'   => 'Muhammad Tulus adalah penyanyi dan penulis lagu asal Bukittinggi, Sumatera Barat. Gaya musiknya yang unik memadukan jazz, soul, dan pop dengan lirik yang penuh makna membuat Tulus menjadi salah satu musisi paling berpengaruh di Indonesia saat ini.',
                 'songs' => [
                     ['title' => 'Gajah',              'album' => 'Gajah',    'year' => '2014'],
@@ -56,6 +59,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Nadin Amizah',
                 'slug'  => 'nadin-amizah',
                 'genre' => 'Indie Folk',
+                'image' => 'artists/nadin-amizah.jpg',
                 'bio'   => 'Nadin Amizah adalah penyanyi dan penulis lagu muda berbakat asal Indonesia. Dengan suara yang khas dan lirik yang puitis dan personal, Nadin berhasil mencuri perhatian industri musik Indonesia dan meraih berbagai penghargaan bergengsi di usia yang sangat muda.',
                 'songs' => [
                     ['title' => 'Rumpang',        'album' => 'Selamat Ulang Tahun', 'year' => '2019'],
@@ -69,6 +73,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Dewa 19',
                 'slug'  => 'dewa-19',
                 'genre' => 'Rock',
+                'image' => 'artists/dewa-19.jpg',
                 'bio'   => 'Dewa 19 adalah legenda musik rock Indonesia yang dibentuk di Surabaya pada tahun 1986. Dipimpin oleh Ahmad Dhani, band ini telah menghasilkan puluhan lagu hits yang melegenda dan tetap dicintai hingga generasi sekarang.',
                 'songs' => [
                     ['title' => 'Kangen',               'album' => 'Dewa 19',           'year' => '1992'],
@@ -82,6 +87,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Pamungkas',
                 'slug'  => 'pamungkas',
                 'genre' => 'Indie Pop',
+                'image' => 'artists/pamungkas.jpg',
                 'bio'   => 'Pamungkas adalah penyanyi, penulis lagu, dan produser musik asal Jakarta. Ia dikenal dengan musiknya yang catchy namun penuh kedalaman emosi. Lagu-lagunya sering viral di media sosial dan berhasil menembus pasar internasional, terutama di Asia Tenggara.',
                 'songs' => [
                     ['title' => 'To The Bone',                  'album' => 'Walk The Talk', 'year' => '2019'],
@@ -95,6 +101,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Hindia',
                 'slug'  => 'hindia',
                 'genre' => 'Indie',
+                'image' => 'artists/hindia.jpg',
                 'bio'   => 'Hindia adalah proyek solo dari Baskara Putra, musisi multitalenta yang juga dikenal sebagai vokalis Stars and Rabbit versi solo. Musik Hindia mengusung tema kesehatan mental, kegelisahan, dan kehidupan sehari-hari dengan aransemen indie pop yang segar.',
                 'songs' => [
                     ['title' => 'Secukupnya',                'album' => 'Sebuah Taman di Bawah Langit', 'year' => '2019'],
@@ -108,6 +115,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Juicy Luicy',
                 'slug'  => 'juicy-luicy',
                 'genre' => 'Pop',
+                'image' => 'artists/juicy-luicy.jpg',
                 'bio'   => 'Juicy Luicy adalah duo musik asal Indonesia yang terdiri dari Aryo dan Randy. Mereka dikenal dengan lagu-lagu pop yang ringan namun penuh emosi, terutama bertema patah hati dan percintaan.',
                 'songs' => [
                     ['title' => 'Lantas',             'album' => 'Lantas',             'year' => '2021'],
@@ -121,6 +129,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Sal Priadi',
                 'slug'  => 'sal-priadi',
                 'genre' => 'Indie',
+                'image' => 'artists/sal-priadi.jpg',
                 'bio'   => 'Sal Priadi adalah penyanyi dan penulis lagu indie asal Indonesia yang dikenal dengan suaranya yang lembut dan lirik yang penuh imajinasi. Musik Sal Priadi memadukan elemen folk, indie pop, dan jazz dengan cara yang unik dan personal.',
                 'songs' => [
                     ['title' => 'Amin Paling Serius',     'album' => 'Asmara Antara',          'year' => '2019'],
@@ -134,6 +143,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Yura Yunita',
                 'slug'  => 'yura-yunita',
                 'genre' => 'Pop',
+                'image' => 'artists/yura-yunita.jpg',
                 'bio'   => 'Yura Yunita adalah penyanyi pop asal Bandung yang dikenal dengan suaranya yang powerful dan penampilan panggung yang energik. Ia sering berkolaborasi dengan berbagai musisi ternama dan aktif mempromosikan kesetaraan gender melalui musiknya.',
                 'songs' => [
                     ['title' => 'Cinta dan Rahasia', 'album' => 'Yura Yunita',     'year' => '2015'],
@@ -147,6 +157,7 @@ class ArtistSeeder extends Seeder
                 'name'  => "Maliq & D'Essentials",
                 'slug'  => 'maliq-dessentials',
                 'genre' => 'R&B Soul',
+                'image' => 'artists/maliq-dessentials.jpg',
                 'bio'   => "Maliq & D'Essentials adalah band R&B soul asal Jakarta yang terbentuk pada 2002. Dikenal dengan harmoni vokal yang indah dan aransemen musik yang kaya, mereka telah menjadi salah satu band paling konsisten di industri musik Indonesia selama lebih dari dua dekade.",
                 'songs' => [
                     ['title' => 'Terdiam',        'album' => "Maliq & D'Essentials",     'year' => '2006'],
@@ -162,6 +173,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Raisa',
                 'slug'  => 'raisa',
                 'genre' => 'Pop',
+                'image' => 'artists/raisa.jpg',
                 'bio'   => 'Raisa Andriana adalah penyanyi pop asal Jakarta yang dikenal dengan suaranya yang merdu dan lagu-lagu romantis. Ia telah merilis beberapa album sukses dan menjadi salah satu penyanyi wanita paling populer di Indonesia.',
                 'songs' => [
                     ['title' => 'Serba Salah',          'album' => 'Raisa',          'year' => '2012'],
@@ -175,6 +187,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Isyana Sarasvati',
                 'slug'  => 'isyana-sarasvati',
                 'genre' => 'Pop',
+                'image' => 'artists/isyana-sarasvati.jpg',
                 'bio'   => 'Isyana Sarasvati adalah penyanyi dan musisi multitalenta yang juga seorang pianis klasik berbakat. Dengan kombinasi vokal yang kuat dan latar belakang musik klasik, Isyana berhasil menciptakan identitas musiknya yang unik di industri pop Indonesia.',
                 'songs' => [
                     ['title' => 'Keep Being You',   'album' => 'Explore!', 'year' => '2015'],
@@ -188,6 +201,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Fiersa Besari',
                 'slug'  => 'fiersa-besari',
                 'genre' => 'Indie Folk',
+                'image' => 'artists/fiersa-besari.webp',
                 'bio'   => 'Fiersa Besari adalah penyanyi, penulis lagu, dan penulis buku asal Bandung. Dikenal dengan lirik-liriknya yang puitis dan personal, Fiersa berhasil meraih hati jutaan penggemar muda Indonesia melalui musik folk yang sederhana namun penuh makna.',
                 'songs' => [
                     ['title' => 'Gaun Merah',        'album' => 'Konstellasi',       'year' => '2017'],
@@ -201,6 +215,7 @@ class ArtistSeeder extends Seeder
                 'name'  => 'Ardhito Pramono',
                 'slug'  => 'ardhito-pramono',
                 'genre' => 'Jazz Pop',
+                'image' => 'artists/ardhito-pramono.jpeg',
                 'bio'   => "Ardhito Pramono adalah penyanyi dan aktor muda berbakat asal Jakarta. Musiknya memadukan jazz, soul, dan pop dengan aransemen yang elegan. Ia dikenal dengan lagunya yang hits seperti Fine and Fine dan I Just Couldn't Save You Tonight.",
                 'songs' => [
                     ['title' => 'Fine and Fine',                    'album' => 'Fine and Fine',   'year' => '2018'],
@@ -211,35 +226,38 @@ class ArtistSeeder extends Seeder
                 ],
             ],
             [
-                'name'  => 'Mocca',
-                'slug'  => 'mocca',
-                'genre' => 'Pop Jazz',
-                'bio'   => 'Mocca adalah band pop jazz asal Bandung yang terbentuk pada 1997. Dikenal dengan nuansa retro 60an dan lirik berbahasa Inggris yang catchy, Mocca telah menjadi ikon musik indie Indonesia dan memiliki penggemar setia di berbagai negara Asia.',
+                'name'  => 'The Changcuters',
+                'slug'  => 'the-changcuters',
+                'genre' => 'Rock',
+                'image' => 'artists/changcuters.jpg',
+                'bio'   => 'The Changcuters adalah band rock asal Bandung yang terbentuk pada tahun 2004. Dikenal dengan gaya panggung energik, penampilan khas retro, dan lagu-lagu yang mudah diingat, The Changcuters menjadi salah satu band rock paling populer di Indonesia.',
                 'songs' => [
-                    ['title' => 'I Remember',         'album' => 'My Diary', 'year' => '2002'],
-                    ['title' => 'You',                'album' => 'Friends',  'year' => '2005'],
-                    ['title' => 'On The Night Like This','album' => 'Friends','year' => '2005'],
-                    ['title' => 'Dear',               'album' => 'Colours',  'year' => '2008'],
-                    ['title' => 'Happy',              'album' => 'Colours',  'year' => '2008'],
+                    ['title' => 'Racun Dunia',      'album' => 'Mencoba Sukses', 'year' => '2006'],
+                    ['title' => 'I Love U Bibeh',   'album' => 'Mencoba Sukses', 'year' => '2006'],
+                    ['title' => 'Main Serong',      'album' => 'Mencoba Sukses', 'year' => '2006'],
+                    ['title' => 'Hijrah ke London', 'album' => 'Misteri Kalajengking Hitam', 'year' => '2009'],
+                    ['title' => 'Parampampam',      'album' => 'Tugas Akhir', 'year' => '2011'],
                 ],
             ],
-            [
-                'name'  => 'Float',
-                'slug'  => 'float',
-                'genre' => 'Indie Pop',
-                'bio'   => 'Float adalah band indie pop asal Bandung yang dikenal dengan musik atmosferik dan lirik yang introspektif. Mereka telah menjadi salah satu nama penting dalam skena musik indie Indonesia dengan album-album yang konsisten berkualitas.',
+           [
+                'name'  => 'Kotak',
+                'slug'  => 'kotak',
+                'genre' => 'Rock',
+                'image' => 'artists/kotak.jpg',
+                'bio'   => 'Kotak adalah band rock Indonesia yang terbentuk melalui ajang Dream Band pada tahun 2004. Dengan vokal kuat dan lagu-lagu bertema kehidupan serta cinta, Kotak berhasil menjadi salah satu band rock modern paling sukses di Indonesia.',
                 'songs' => [
-                    ['title' => 'Biarkan Aku Menua Bersamamu', 'album' => 'Kamar Gelap',     'year' => '2007'],
-                    ['title' => 'Kosong',                      'album' => 'Kamar Gelap',     'year' => '2007'],
-                    ['title' => 'Sampai Jadi Debu',            'album' => 'Sampai Jadi Debu','year' => '2010'],
-                    ['title' => 'Pulang',                      'album' => 'Sampai Jadi Debu','year' => '2010'],
-                    ['title' => 'Kita',                        'album' => 'Kita',            'year' => '2016'],
+                    ['title' => 'Beraksi',          'album' => 'Kotak Kedua', 'year' => '2008'],
+                    ['title' => 'Pelan-Pelan Saja', 'album' => 'Energi',      'year' => '2010'],
+                    ['title' => 'Tendangan Dari Langit', 'album' => 'Inspirasi Sahabat', 'year' => '2010'],
+                    ['title' => 'Selalu Cinta',     'album' => 'Energi',      'year' => '2010'],
+                    ['title' => 'Masih Cinta',      'album' => 'Never Dies',  'year' => '2014'],
                 ],
             ],
             [
                 'name'  => 'Barasuara',
                 'slug'  => 'barasuara',
                 'genre' => 'Alternative Rock',
+                'image' => 'artists/barasuara.jpg',
                 'bio'   => 'Barasuara adalah band alternative rock asal Jakarta yang dikenal dengan musik yang powerful dan lirik yang penuh makna sosial. Mereka telah merilis beberapa album yang mendapat pujian dari kritikus musik dan menjadi favorit di berbagai festival musik Indonesia.',
                 'songs' => [
                     ['title' => 'Taifun',                   'album' => 'Taifun',                 'year' => '2015'],

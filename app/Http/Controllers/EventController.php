@@ -25,7 +25,13 @@ class EventController extends Controller
 
         $categories = Category::all();
 
-        return view('events.index', compact('popularEvents', 'allEvents', 'categories'));
+        $featuredArtists = \App\Models\Artist::withCount('events')
+            ->having('events_count', '>', 0)
+            ->orderBy('name')
+            ->take(10)
+            ->get();
+
+        return view('events.index', compact('popularEvents', 'allEvents', 'categories', 'featuredArtists'));
     }
 
     // Halaman /konser — semua event dengan filter

@@ -99,33 +99,27 @@ dark:to-transparent">
         </svg>
     </div>
 
-    {{-- Artist list dari organizer events yang ada --}}
+    {{-- Artist list dari database --}}
     <div class="flex items-center gap-6 overflow-visible justify-center flex-wrap py-4">
-    @php
-        $artists = [
-            ['name' => 'NOAH',        'slug' => 'noah',        'emoji' => '🎸'],
-            ['name' => 'Sheila On 7', 'slug' => 'sheila-on-7', 'emoji' => '🎵'],
-            ['name' => 'Tulus',       'slug' => 'tulus',       'emoji' => '🎤'],
-            ['name' => 'Nadin Amizah','slug' => 'nadin-amizah','emoji' => '🎶'],
-            ['name' => 'Dewa 19',     'slug' => 'dewa-19',     'emoji' => '🥁'],
-            ['name' => 'Pamungkas',   'slug' => 'pamungkas',   'emoji' => '🎹'],
-            ['name' => 'Hindia',      'slug' => 'hindia',      'emoji' => '🎸'],
-            ['name' => 'Juicy Luicy', 'slug' => 'juicy-luicy', 'emoji' => '🎷'],
-            ['name' => 'Sal Priadi',  'slug' => 'sal-priadi',  'emoji' => '🎵'],
-            ['name' => 'Yura Yunita', 'slug' => 'yura-yunita', 'emoji' => '🎤'],
-        ];
-    @endphp
 
-        @foreach($artists as $artist)
-        <a href="{{ route('artists.show', $artist['slug']) }}" class="flex flex-col items-center gap-2 cursor-pointer group flex-shrink-0">
-            <div class="w-[72px] h-[72px] rounded-full bg-white border border-gray-200 shadow-md dark:bg-gradient-to-br dark:from-[#1A2235] dark:to-[#0F172A] dark:border-white/10
-                flex items-center justify-center text-2xl shadow-md
+        @foreach($featuredArtists as $artist)
+        <a href="{{ route('artists.show', $artist->slug) }}" class="flex flex-col items-center gap-2 cursor-pointer group flex-shrink-0">
+            <div class="w-[72px] h-[72px] rounded-full overflow-hidden border border-gray-200 shadow-md dark:border-white/10
                 ring-2 ring-transparent group-hover:ring-[#E91E8C] transition-all duration-200
                 group-hover:scale-105">
-                {{ $artist['emoji'] }}
+                @if($artist->image)
+                    <img src="{{ asset('storage/' . $artist->image) }}" alt="{{ $artist->name }}"
+                        class="w-full h-full object-cover">
+                @else
+                    <div class="w-full h-full bg-gradient-to-br from-[#EC4899] to-purple-600 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white/70" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+                        </svg>
+                    </div>
+                @endif
             </div>
             <span class="text-xs font-semibold text-gray-700 dark:text-slate-300 group-hover:text-[#E91E8C] transition text-center leading-tight">
-                {{ $artist['name'] }}
+                {{ $artist->name }}
             </span>
         </a>
         @endforeach
