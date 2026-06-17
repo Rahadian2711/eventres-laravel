@@ -68,7 +68,7 @@ Pastikan software berikut sudah terinstall sebelum memulai:
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/username/melodia.git
+git clone https://github.com/Rahadian2711/eventres-laravel.git
 cd melodia
 ```
 
