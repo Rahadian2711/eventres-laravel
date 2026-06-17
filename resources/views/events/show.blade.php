@@ -26,10 +26,23 @@
         <div class="lg:col-span-8">
 
             <div class="relative overflow-hidden rounded-3xl">
-                <img
-                    src="{{ $event->image }}"
-                    alt="{{ $event->title }}"
-                    class="w-full h-[380px] object-cover">
+                @if($event->banner)
+                    <img
+                        src="{{ asset('storage/' . $event->banner) }}"
+                        alt="{{ $event->title }}"
+                        class="w-full h-[380px] object-cover">
+                @elseif($event->thumbnail)
+                    <img
+                        src="{{ asset('storage/' . $event->thumbnail) }}"
+                        alt="{{ $event->title }}"
+                        class="w-full h-[380px] object-cover">
+                @else
+                    <div class="w-full h-[380px] bg-gradient-to-br from-gray-800 via-gray-700 to-gray-600 rounded-3xl flex items-center justify-center">
+                        <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+                        </svg>
+                    </div>
+                @endif
 
                 <button
                     class="absolute top-4 right-4 w-11 h-11 rounded-xl bg-white shadow-lg flex items-center justify-center text-gray-400 hover:text-red-500 transition">

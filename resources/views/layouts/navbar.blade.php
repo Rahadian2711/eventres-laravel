@@ -48,7 +48,13 @@
                         : 'text-gray-600 dark:text-slate-300 hover:text-[#E91E8C]' }}">
                     Konser
                 </a>
-                <a href="#" class="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-[#E91E8C] transition">Tentang Kami</a>
+                <a href="{{ route('about') }}"
+                    class="text-sm font-medium transition
+                    {{ request()->routeIs('about')
+                        ? 'text-[#E91E8C] border-b-2 border-[#E91E8C] pb-0.5'
+                        : 'text-gray-600 dark:text-slate-300 hover:text-[#E91E8C]' }}">
+                    Tentang Kami
+                </a>
             </div>
 
 

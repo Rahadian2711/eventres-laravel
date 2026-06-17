@@ -70,6 +70,7 @@ Route::post(
     [PaymentController::class, 'notification']
 )->name('midtrans.notification');
 
+Route::get('/tentang-kami', [App\Http\Controllers\PageController::class, 'about'])->name('about');
 
 // Breeze auth routes (sudah ada dari Breeze install)
 require __DIR__.'/auth.php';

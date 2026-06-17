@@ -21,6 +21,8 @@ class EventSeeder extends Seeder
                 'description' => 'Saksikan penampilan spektakuler NOAH Live in Concert secara langsung. Nikmati hits terbaik mereka dari Separuh Aku hingga Tak Lagi Sama dalam satu malam yang tak terlupakan.',
                 'venue'       => 'Istora Senayan, Jakarta',
                 'start'       => '2026-06-25 19:30:00',
+                'thumbnail'   => 'thumbnail/noah-live-in-concert.jpg',
+                'banner'      => 'banner/noah-live-in-concert.jpg',
                 'tickets'     => [
                     ['name' => 'Festival',  'price' => 350000,  'quota' => 5000, 'desc' => 'Akses area festival, standing'],
                     ['name' => 'Prestige',  'price' => 650000,  'quota' => 1500, 'desc' => 'Akses area prestige, kursi bernomor'],
@@ -35,6 +37,8 @@ class EventSeeder extends Seeder
                 'description' => 'Rayakan 28 tahun perjalanan musik Sheila On 7 bersama ribuan Sheila Gank. Dari "Dan" hingga "Sahabat Sejati", semua lagu legendaris akan dibawakan dalam satu malam penuh nostalgia.',
                 'venue'       => 'Jexpo Kemayoran, Jakarta',
                 'start'       => '2026-07-05 19:30:00',
+                'thumbnail'   => 'thumbnail/sheila-on-7-live-in-concert.png',
+                'banner'      => 'banner/sheila-on-7-live-in-concert.webp',
                 'tickets'     => [
                     ['name' => 'Festival',  'price' => 350000,  'quota' => 4000, 'desc' => 'Akses area festival, standing'],
                     ['name' => 'Tribune',   'price' => 550000,  'quota' => 2000, 'desc' => 'Kursi tribune bernomor'],
@@ -49,6 +53,8 @@ class EventSeeder extends Seeder
                 'description' => 'Tulus kembali hadir dalam tur konser terbarunya. Malam ini akan dipenuhi lagu-lagu dari album Manusia yang menyentuh hati, dibawakan dengan aransemen orkestra yang memukau.',
                 'venue'       => 'JCC Senayan, Jakarta',
                 'start'       => '2026-07-30 19:30:00',
+                'thumbnail'   => 'thumbnail/tulus-tur-manusia-2026.png',
+                'banner'      => 'banner/tulus-tur-manusia-2026.jpg',
                 'tickets'     => [
                     ['name' => 'Festival',  'price' => 350000,  'quota' => 4000, 'desc' => 'Akses area festival, standing'],
                     ['name' => 'Prestige',  'price' => 650000,  'quota' => 1000, 'desc' => 'Akses area prestige, kursi bernomor'],
@@ -63,6 +69,8 @@ class EventSeeder extends Seeder
                 'description' => 'Merayakan 30 tahun perjalanan musik Dewa 19 yang penuh legenda. Saksikan Ahmad Dhani dan kawan-kawan membawakan semua lagu ikonik dari Kangen hingga Laskar Cinta.',
                 'venue'       => 'ICE BSD City',
                 'start'       => '2026-07-16 19:00:00',
+                'thumbnail'   => 'thumbnail/dewa-19-30th-anniversary-tour.jpg',
+                'banner'      => 'banner/dewa-19-30th-anniversary-tour.jpg',
                 'tickets'     => [
                     ['name' => 'Festival',  'price' => 400000,  'quota' => 6000, 'desc' => 'Akses area festival, standing'],
                     ['name' => 'Tribune',   'price' => 650000,  'quota' => 3000, 'desc' => 'Kursi tribune bernomor'],
@@ -77,6 +85,8 @@ class EventSeeder extends Seeder
                 'description' => 'Pamungkas hadir membawakan lagu-lagu terbaiknya dalam konser solo perdana di Jakarta. Nikmati atmosfer intim dan personal yang akan membawa kamu larut dalam musik.',
                 'venue'       => 'Tennis Indoor Senayan',
                 'start'       => '2026-06-28 20:00:00',
+                'thumbnail'   => 'thumbnail/pamungkas-live-in-jakarta.png',
+                'banner'      => 'banner/pamungkas-live-in-jakarta.jpg',
                 'tickets'     => [
                     ['name' => 'Festival',  'price' => 350000,  'quota' => 3000, 'desc' => 'Akses area festival, standing'],
                     ['name' => 'VIP',       'price' => 750000,  'quota' => 500,  'desc' => 'Akses area VIP dengan fasilitas premium'],
@@ -90,6 +100,8 @@ class EventSeeder extends Seeder
                 'description' => 'Hindia hadir dengan konser solo yang akan membawa kamu menyelami dunia musik indie yang kaya emosi. Lagu-lagu dari Sebuah Taman di Bawah Langit dan Evaluasi akan dibawakan secara live.',
                 'venue'       => 'Jexpo Kemayoran, Jakarta',
                 'start'       => '2026-07-25 20:00:00',
+                'thumbnail'   => 'thumbnail/hindia-live-in-concert.jpg',
+                'banner'      => 'banner/hindia-live-in-concert.jpg',
                 'tickets'     => [
                     ['name' => 'Regular',   'price' => 400000,  'quota' => 2500, 'desc' => 'Akses area regular, standing'],
                     ['name' => 'VIP',       'price' => 800000,  'quota' => 400,  'desc' => 'Akses area VIP dengan fasilitas premium'],
@@ -103,6 +115,8 @@ class EventSeeder extends Seeder
                 'description' => 'Juicy Luicy hadir membawakan semua lagu galau favorit kamu. Dari Lantas hingga Tampar, rasakan setiap emosi dalam satu malam yang penuh perasaan.',
                 'venue'       => 'Istora Senayan',
                 'start'       => '2026-08-15 19:30:00',
+                'thumbnail'   => 'thumbnail/juicy-luicy-live-in-concert.jpg',
+                'banner'      => 'banner/juicy-luicy-live-in-concert.jpeg',
                 'tickets'     => [
                     ['name' => 'Festival',  'price' => 350000,  'quota' => 4000, 'desc' => 'Akses area festival, standing'],
                     ['name' => 'VIP',       'price' => 700000,  'quota' => 500,  'desc' => 'Kursi VIP dengan fasilitas premium'],
@@ -116,6 +130,8 @@ class EventSeeder extends Seeder
                 'description' => 'Nadin Amizah membawa tur solo pertamanya ke Jakarta. Saksikan penampilan yang emosional dan intim dari salah satu penyanyi paling berbakat Indonesia.',
                 'venue'       => 'The Kasablanka',
                 'start'       => '2026-08-20 20:00:00',
+                'thumbnail'   => 'thumbnail/nadin-amizah-tour-2026.png',
+                'banner'      => 'banner/nadin-amizah-tour-2026.webp',
                 'tickets'     => [
                     ['name' => 'Regular',   'price' => 300000,  'quota' => 2000, 'desc' => 'Akses area regular'],
                     ['name' => 'VIP',       'price' => 650000,  'quota' => 300,  'desc' => 'Akses VIP dengan meet & greet'],
@@ -129,6 +145,8 @@ class EventSeeder extends Seeder
                 'description' => 'Yura Yunita hadir dengan penampilan panggung yang spektakuler. Nikmati lagu-lagu hits dari Cinta dan Rahasia hingga Intuisi dalam satu malam penuh kegembiraan.',
                 'venue'       => 'Tennis Indoor Senayan',
                 'start'       => '2026-08-28 19:30:00',
+                'thumbnail'   => 'thumbnail/yura-yunita-live-in-concert.jpg',
+                'banner'      => 'banner/yura-yunita-live-in-concert.jpg',
                 'tickets'     => [
                     ['name' => 'Festival',  'price' => 300000,  'quota' => 3000, 'desc' => 'Akses area festival, standing'],
                     ['name' => 'VIP',       'price' => 650000,  'quota' => 400,  'desc' => 'Kursi VIP premium'],
@@ -142,6 +160,8 @@ class EventSeeder extends Seeder
                 'description' => 'Sal Priadi hadir dengan konser solo yang akan membawa kamu merasakan kehangatan dan keindahan musiknya. Dari Amin Paling Serius hingga 2 Celsius, semua akan dibawakan secara live.',
                 'venue'       => 'JCC Senayan',
                 'start'       => '2026-09-05 20:00:00',
+                'thumbnail'   => 'thumbnail/sal-priadi-live-in-concert.jpg',
+                'banner'      => 'banner/sal-priadi-live-in-concert.jpg',
                 'tickets'     => [
                     ['name' => 'Regular',   'price' => 350000,  'quota' => 2500, 'desc' => 'Akses area regular'],
                     ['name' => 'VIP',       'price' => 700000,  'quota' => 350,  'desc' => 'Akses VIP dengan fasilitas eksklusif'],
@@ -155,6 +175,8 @@ class EventSeeder extends Seeder
                 'description' => "Maliq & D'Essentials hadir dengan konser yang penuh harmoni. Nikmati R&B soul terbaik Indonesia dalam satu malam yang elegan dan penuh groove.",
                 'venue'       => 'GBK Basketball Hall',
                 'start'       => '2026-09-20 19:30:00',
+                'thumbnail'   => 'thumbnail/maliq-dessentials-live.jpg',
+                'banner'      => 'banner/maliq-dessentials-live.jpg',
                 'tickets'     => [
                     ['name' => 'Regular',   'price' => 400000,  'quota' => 3000, 'desc' => 'Akses area regular'],
                     ['name' => 'VIP',       'price' => 800000,  'quota' => 400,  'desc' => 'Kursi VIP premium'],
@@ -169,6 +191,8 @@ class EventSeeder extends Seeder
                 'description' => 'We The Fest kembali hadir sebagai festival musik terbesar di Indonesia. Menampilkan lineup artis terbaik lokal dan internasional selama 3 hari penuh musik, seni, dan kuliner.',
                 'venue'       => 'GBK Sports Complex, Jakarta',
                 'start'       => '2026-08-23 14:00:00',
+                'thumbnail'   => 'thumbnail/we-the-fest-2026.jpg',
+                'banner'      => 'banner/we-the-fest-2026.jpg',
                 'tickets'     => [
                     ['name' => '1 Day Pass',  'price' => 495000,  'quota' => 8000, 'desc' => 'Akses 1 hari festival'],
                     ['name' => '3 Day Pass',  'price' => 1200000, 'quota' => 3000, 'desc' => 'Akses 3 hari festival, hemat lebih banyak'],
@@ -184,6 +208,8 @@ class EventSeeder extends Seeder
                 'description' => 'Java Jazz Festival hadir kembali membawa pengalaman jazz terbaik dari musisi lokal dan internasional. Festival jazz terbesar di Asia Tenggara yang telah berlangsung selama lebih dari 20 tahun.',
                 'venue'       => 'JIExpo Kemayoran, Jakarta',
                 'start'       => '2026-10-02 15:00:00',
+                'thumbnail'   => 'thumbnail/java-jazz-festival-2026.jpg',
+                'banner'      => 'banner/java-jazz-festival-2026.jpg',
                 'tickets'     => [
                     ['name' => '1 Day Pass',  'price' => 550000,  'quota' => 10000, 'desc' => 'Akses 1 hari festival'],
                     ['name' => '3 Day Pass',  'price' => 1350000, 'quota' => 5000,  'desc' => 'Akses 3 hari festival'],
@@ -199,6 +225,8 @@ class EventSeeder extends Seeder
                 'description' => 'Synchronize Festival adalah festival musik indie terbesar di Indonesia yang menampilkan ratusan artis dari berbagai genre. Tiga hari penuh musik, komunitas, dan keberagaman.',
                 'venue'       => 'Gambir Expo, Jakarta',
                 'start'       => '2026-10-16 13:00:00',
+                'thumbnail'   => 'thumbnail/synchronize-festival-2026.jpg',
+                'banner'      => 'banner/synchronize-festival-2026.jpg',
                 'tickets'     => [
                     ['name' => '1 Day Pass',  'price' => 350000,  'quota' => 8000, 'desc' => 'Akses 1 hari festival'],
                     ['name' => '3 Day Pass',  'price' => 850000,  'quota' => 3000, 'desc' => 'Akses 3 hari festival'],
@@ -214,6 +242,8 @@ class EventSeeder extends Seeder
                 'description' => 'Raisa hadir kembali dengan konser solo yang memukau. Dari "Serba Salah" hingga "Jatuh Hati", semua lagu terbaik Raisa akan dibawakan dalam satu malam yang penuh romansa dan keindahan.',
                 'venue'       => 'Istora Senayan, Jakarta',
                 'start'       => '2026-07-12 19:30:00',
+                'thumbnail'   => 'thumbnail/raisa-live-in-concert-2026.jpg',
+                'banner'      => 'banner/raisa-live-in-concert-2026.jpg',
                 'tickets'     => [
                     ['name' => 'Festival',  'price' => 375000,  'quota' => 4000, 'desc' => 'Akses area festival, standing'],
                     ['name' => 'Prestige',  'price' => 650000,  'quota' => 1500, 'desc' => 'Kursi prestige bernomor'],
@@ -228,6 +258,8 @@ class EventSeeder extends Seeder
                 'description' => 'Isyana Sarasvati hadir dengan konsep pertunjukan yang belum pernah ada sebelumnya. Menggabungkan musik pop modern dengan sentuhan orkestra klasik, malam ini akan menjadi pengalaman yang benar-benar luar biasa.',
                 'venue'       => 'JCC Senayan, Jakarta',
                 'start'       => '2026-08-02 19:00:00',
+                'thumbnail'   => 'thumbnail/isyana-sarasvati-reborn-tour.png',
+                'banner'      => 'banner/isyana-sarasvati-reborn-tour.jpg',
                 'tickets'     => [
                     ['name' => 'Regular',   'price' => 350000,  'quota' => 3000, 'desc' => 'Akses area regular, standing'],
                     ['name' => 'VIP',       'price' => 800000,  'quota' => 500,  'desc' => 'Kursi VIP, akses soundcheck, goodie bag'],
@@ -241,6 +273,8 @@ class EventSeeder extends Seeder
                 'description' => 'Fiersa Besari mengajak kamu menyelami semesta musiknya dalam satu malam yang penuh emosi. Lagu-lagu dari Gaun Merah hingga Waktu yang Salah akan dibawakan secara live dengan aransemen yang lebih intim dari sebelumnya.',
                 'venue'       => 'Tennis Indoor Senayan, Jakarta',
                 'start'       => '2026-09-13 20:00:00',
+                'thumbnail'   => 'thumbnail/fiersa-besari-konser-semesta.jpg',
+                'banner'      => 'banner/fiersa-besari-konser-semesta.jpg',
                 'tickets'     => [
                     ['name' => 'Regular',   'price' => 300000,  'quota' => 3000, 'desc' => 'Akses area regular, standing'],
                     ['name' => 'VIP',       'price' => 650000,  'quota' => 400,  'desc' => 'Kursi VIP premium, goodie bag'],
@@ -254,6 +288,8 @@ class EventSeeder extends Seeder
                 'description' => 'Ardhito Pramono hadir dalam konser solo pertamanya yang dinantikan banyak penggemar. Nikmati jazz pop yang smooth dan elegan dalam suasana konser yang intim dan penuh nuansa.',
                 'venue'       => 'The Kasablanka, Jakarta',
                 'start'       => '2026-09-27 20:00:00',
+                'thumbnail'   => 'thumbnail/ardhito-pramono-live-concert.jpg',
+                'banner'      => 'banner/ardhito-pramono-live-concert.jpg',
                 'tickets'     => [
                     ['name' => 'Regular',   'price' => 325000,  'quota' => 2000, 'desc' => 'Akses area regular'],
                     ['name' => 'VIP',       'price' => 700000,  'quota' => 300,  'desc' => 'Kursi VIP dengan meet & greet'],
@@ -267,6 +303,8 @@ class EventSeeder extends Seeder
                 'description' => 'Barasuara kembali menggebrak panggung dengan Taifun Tour. Energi penuh dari lagu-lagu seperti Taifun dan Mengunci Dunia akan membuat malam ini menjadi pengalaman rock yang tidak terlupakan.',
                 'venue'       => 'Jexpo Kemayoran, Jakarta',
                 'start'       => '2026-10-10 19:30:00',
+                'thumbnail'   => 'thumbnail/barasuara-taifun-tour.jpg',
+                'banner'      => 'banner/barasuara-taifun-tour.jpg',
                 'tickets'     => [
                     ['name' => 'Festival',  'price' => 350000,  'quota' => 4000, 'desc' => 'Akses area festival, standing'],
                     ['name' => 'VIP',       'price' => 750000,  'quota' => 400,  'desc' => 'Kursi VIP, goodie bag eksklusif'],
@@ -280,6 +318,8 @@ class EventSeeder extends Seeder
                 'description' => 'Soundrenaline kembali hadir sebagai festival rock terbesar di Indonesia. Dua hari penuh penampilan band-band terbaik tanah air yang akan membakar semangat dan adrenalin kamu.',
                 'venue'       => 'Bali Beach GWK, Bali',
                 'start'       => '2026-11-14 13:00:00',
+                'thumbnail'   => 'thumbnail/soundrenaline-2026.jpg',
+                'banner'      => 'banner/soundrenaline-2026.jpg',
                 'tickets'     => [
                     ['name' => '1 Day Pass',  'price' => 450000,  'quota' => 10000, 'desc' => 'Akses 1 hari festival'],
                     ['name' => '2 Day Pass',  'price' => 800000,  'quota' => 5000,  'desc' => 'Akses 2 hari festival, hemat lebih banyak'],
@@ -295,6 +335,8 @@ class EventSeeder extends Seeder
                 'description' => 'Joyland Festival hadir dengan lineup artis lokal dan internasional yang memukau. Festival musik multi-genre ini menawarkan pengalaman unik yang memadukan musik, seni, dan kuliner dalam satu tempat.',
                 'venue'       => 'Istora Senayan, Jakarta',
                 'start'       => '2026-12-05 14:00:00',
+                'thumbnail'   => 'thumbnail/joyland-festival-2026.jpg',
+                'banner'      => 'banner/joyland-festival-2026.jpg',
                 'tickets'     => [
                     ['name' => '1 Day Pass',  'price' => 525000,  'quota' => 8000, 'desc' => 'Akses 1 hari festival'],
                     ['name' => '3 Day Pass',  'price' => 1300000, 'quota' => 3000, 'desc' => 'Akses 3 hari festival'],
@@ -310,12 +352,13 @@ class EventSeeder extends Seeder
                 'description' => 'Raisa membawa Diary Tour ke berbagai kota di Indonesia. Sebuah perjalanan musikal yang menceritakan kisah cinta dan kehidupan melalui lagu-lagu terbaik Raisa yang telah menemani hari-hari jutaan penggemarnya.',
                 'venue'       => 'Sabuga, Bandung',
                 'start'       => '2026-12-19 19:30:00',
+                'thumbnail'   => 'thumbnail/raisa-diary-tour-2026.png',
+                'banner'      => 'banner/raisa-diary-tour-2026.jpeg',
                 'tickets'     => [
                     ['name' => 'Regular',   'price' => 350000,  'quota' => 3000, 'desc' => 'Akses area regular'],
                     ['name' => 'VIP',       'price' => 750000,  'quota' => 400,  'desc' => 'Kursi VIP premium, goodie bag'],
                 ],
             ],
-        ];
             [
                 'category_id' => 3, 'artist' => 'noah',
                 'title'       => 'NOAH The Journey Tour 2026',
@@ -324,12 +367,14 @@ class EventSeeder extends Seeder
                 'description' => 'NOAH kembali hadir dalam tur keliling kota terbesar mereka. Saksikan penampilan NOAH di kota kamu dan rasakan energi luar biasa dari salah satu band rock terbaik Indonesia.',
                 'venue'       => 'Mata Elang International Stadium, Tangerang',
                 'start'       => '2026-11-07 19:00:00',
+                'thumbnail'   => 'thumbnail/noah-the-journey-tour-2026.jpg',
+                'banner'      => 'banner/noah-the-journey-tour-2026.jpg',
                 'tickets'     => [
                     ['name' => 'Festival',  'price' => 375000,  'quota' => 6000, 'desc' => 'Akses area festival, standing'],
                     ['name' => 'Prestige',  'price' => 675000,  'quota' => 2000, 'desc' => 'Kursi prestige bernomor'],
                     ['name' => 'VIP',       'price' => 1000000, 'quota' => 500,  'desc' => 'Kursi VIP dengan meet & greet'],
                 ],
-            
+            ],
             [
                 'category_id' => 3, 'artist' => 'yura-yunita',
                 'title'       => 'Yura Yunita Intuisi Tour',
@@ -338,6 +383,8 @@ class EventSeeder extends Seeder
                 'description' => 'Yura Yunita membawa Intuisi Tour ke berbagai kota di Indonesia. Sebuah perjalanan musikal yang penuh warna dan semangat kesetaraan.',
                 'venue'       => 'Balai Sarbini, Jakarta',
                 'start'       => '2026-11-21 19:30:00',
+                'thumbnail'   => 'thumbnail/yura-yunita-intuisi-tour.jpg',
+                'banner'      => 'banner/yura-yunita-intuisi-tour.jpg',
                 'tickets'     => [
                     ['name' => 'Regular',   'price' => 325000,  'quota' => 2500, 'desc' => 'Akses area regular'],
                     ['name' => 'VIP',       'price' => 700000,  'quota' => 350,  'desc' => 'Kursi VIP premium'],
@@ -350,8 +397,12 @@ class EventSeeder extends Seeder
             if (Event::where('slug', $data['slug'])->exists()) {
                 $event = Event::where('slug', $data['slug'])->first();
 
-                // Update description
-                $event->update(['description' => $data['description']]);
+                // Update description, thumbnail, dan banner
+                $event->update([
+                    'description' => $data['description'],
+                    'thumbnail'   => $data['thumbnail'] ?? $event->thumbnail,
+                    'banner'      => $data['banner'] ?? $event->banner,
+                ]);
 
                 // Buat schedule jika belum ada
                 if ($event->schedules()->count() === 0) {
@@ -400,6 +451,8 @@ class EventSeeder extends Seeder
                 'organizer'   => $data['organizer'],
                 'description' => $data['description'],
                 'venue'       => $data['venue'],
+                'thumbnail'   => $data['thumbnail'] ?? null,
+                'banner'      => $data['banner'] ?? null,
                 'status'      => 'published',
             ]);
 
