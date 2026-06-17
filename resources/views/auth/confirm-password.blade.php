@@ -1,27 +1,65 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Password – Melodia</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-[#060B1F] flex items-center justify-center px-4 transition-colors duration-300">
+
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#EC4899]/8 rounded-full blur-[100px]"></div>
     </div>
 
-    <form method="POST" action="{{ route('password.confirm') }}">
-        @csrf
+    <div class="relative w-full max-w-md">
 
-        <!-- Password -->
-        <div>
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="text-center mb-8">
+            <a href="{{ route('home') }}" class="inline-flex flex-col items-center gap-2">
+                <div class="w-14 h-14 bg-[#EC4899] rounded-2xl flex items-center justify-center shadow-lg shadow-pink-500/30">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="text-xl font-bold text-gray-900 dark:text-white">Melodia</div>
+                    <div class="text-xs text-[#EC4899] font-semibold tracking-wide">Live the Music</div>
+                </div>
+            </a>
         </div>
 
-        <div class="flex justify-end mt-4">
-            <x-primary-button>
-                {{ __('Confirm') }}
-            </x-primary-button>
+        <div class="bg-white dark:bg-[#0F172A] border border-gray-100 dark:border-white/8 rounded-3xl p-8 shadow-xl dark:shadow-2xl">
+
+            <div class="mb-6">
+                <div class="w-12 h-12 rounded-xl bg-[#EC4899]/10 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-[#EC4899]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-extrabold text-gray-900 dark:text-white">Area Aman</h1>
+                <p class="text-sm text-gray-500 dark:text-slate-400 mt-1">Konfirmasi password kamu untuk melanjutkan.</p>
+            </div>
+
+            <form method="POST" action="{{ route('password.confirm') }}" class="space-y-5">
+                @csrf
+
+                <div>
+                    <label for="password" class="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-1.5">Password</label>
+                    <input id="password" type="password" name="password" required autocomplete="current-password"
+                        class="w-full px-4 py-3 bg-slate-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#EC4899] focus:ring-2 focus:ring-[#EC4899]/20 transition"
+                        placeholder="Masukkan password kamu">
+                    @error('password')
+                        <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <button type="submit"
+                    class="w-full py-3 bg-[#EC4899] hover:bg-[#db2777] text-white font-bold rounded-xl transition shadow-md shadow-pink-500/20 text-sm">
+                    Konfirmasi
+                </button>
+            </form>
         </div>
-    </form>
-</x-guest-layout>
+    </div>
+
+</body>
+</html>
