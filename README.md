@@ -69,7 +69,7 @@ Pastikan software berikut sudah terinstall sebelum memulai:
 
 ```bash
 git clone https://github.com/Rahadian2711/eventres-laravel.git
-cd melodia
+cd eventres-laravel
 ```
 
 ### 2. Install Dependencies PHP
